@@ -1,0 +1,19 @@
+<html>
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+    {% load compress %}
+    {% load staticfiles %}
+
+    {% compress css %}
+        <link href="{% static "css/index.scss" %}" rel="stylesheet" type="text/scss" />
+    {% endcompress %}
+
+    <script type="text/javascript" src="{% static "js/jquery-2.1.3.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/form_handler.js" %}"></script>
+</head>
+<body>
+    <div class="contentContainer">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

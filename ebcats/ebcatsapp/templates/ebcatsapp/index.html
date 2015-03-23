@@ -1,0 +1,10 @@
+{% extends 'ebcatsapp/skeleton.html' %}
+
+{% block content %}
+    <div class="instructions">Choose your top 3 categories:</div>
+    <div class="categories">
+        {{ categories_form }}
+        <div id="viewEvents">View Events</div>
+        <div class="error"></div>
+    </div>
+{% endblock %}

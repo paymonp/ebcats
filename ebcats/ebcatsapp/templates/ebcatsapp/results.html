@@ -1,0 +1,9 @@
+<div class="results">
+    {% for event in events %}
+        <a href="{{ event.url }}">
+            <div class="name">
+                {{ event.name }}
+            </div>
+        </a>
+    {% endfor %}
+</div>

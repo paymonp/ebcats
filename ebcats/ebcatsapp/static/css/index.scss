@@ -1,0 +1,56 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    min-width: 500px;
+    background-color: #dddddd;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.contentContainer {
+    max-width: 960px;
+    margin: 50px auto 0 auto;
+    text-align: center;
+    font-size: 18px;
+}
+
+.instructions {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.categories {
+    ul {
+       text-align: left;
+       width: 300px;
+       margin: 30px auto;
+    }
+
+    .instructions {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    #viewEvents {
+        font-weight: bold;
+        background-color: #30D84B;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 10px;
+        margin: 0 auto;
+        height: 25px;
+        width: 120px;
+    }
+
+    .error {
+        color: red;
+    }
+
+    // disable the default label django puts for the field
+    // no clear solution found online
+    > label {
+        display: none;
+    }
+}
