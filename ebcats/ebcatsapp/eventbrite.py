@@ -29,15 +29,12 @@ class Eventbrite:
     """
     def get_category_events(self, category_ids, page=1):
         args = {'categories': ','.join(map(str, category_ids)),
-                'page': page}
+                'page': page,
+                'sort_by': 'date'}
         events_json = self.make_api_request('events/search/', args)
         if 'events' not in events_json:
             return []
-        # filter out just the things we need
-        events = [{'name': event['name']['text'],
-                   'url': event['url']}
-                  for event in events_json['events']]
-        return events
+        return events_json
 
     def make_api_request(self, path, args={}):
         args['token'] = self.token

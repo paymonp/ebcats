@@ -13,7 +13,10 @@
 </head>
 <body>
     <div class="contentContainer">
-        {% block content %}{% endblock %}
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+        <div class="loadingGif">Retrieving events... <img src="{% static "images/ajax-loader.gif" %}" /></div>
     </div>
 </body>
 </html>

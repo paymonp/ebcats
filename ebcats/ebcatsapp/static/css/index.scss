@@ -4,35 +4,29 @@ body {
     min-width: 500px;
     background-color: #dddddd;
 }
-
 ul {
     list-style-type: none;
 }
-
 .contentContainer {
-    max-width: 960px;
+    max-width: 800px;
     margin: 50px auto 0 auto;
     text-align: center;
     font-size: 18px;
 }
-
 .instructions {
     font-weight: bold;
     font-size: 20px;
 }
-
 .categories {
     ul {
        text-align: left;
        width: 300px;
        margin: 30px auto;
     }
-
     .instructions {
         font-weight: bold;
         font-size: 20px;
     }
-
     #viewEvents {
         font-weight: bold;
         background-color: #30D84B;
@@ -43,7 +37,6 @@ ul {
         height: 25px;
         width: 120px;
     }
-
     .error {
         color: red;
     }
@@ -52,5 +45,50 @@ ul {
     // no clear solution found online
     > label {
         display: none;
+    }
+}
+.loadingGif {
+    display: none;
+    margin-top: 20px;
+}
+.resultsPagination {
+    margin: 15px 0;
+    .paginationLink {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 7px;
+        cursor: pointer;
+        font-size: 22px;
+        font-weight: 600;
+    }
+    .pageInfo {
+        font-style: italic;
+        font-size: 14px;
+        color: #444444;
+    }
+}
+.results a {
+    text-decoration: none;
+    color: black;
+}
+.event {
+    text-align: left;
+    height: 220px;
+    margin: 30px 0;
+    background-color: white;
+    .logo {
+        height: 100%;
+        width: 220px;
+        float: left;
+    }
+    .details {
+        height: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+        padding: 20px;
+        .name {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
     }
 }

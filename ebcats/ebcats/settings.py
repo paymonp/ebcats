@@ -30,23 +30,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
     'django.contrib.staticfiles',
     'compressor',
     'ebcatsapp',
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
@@ -109,7 +100,8 @@ EVENTBRITE_API_TOKEN = 'A5F6TPUDWWEP7CSC4SQX'
 Settings for MemCachier (memcached for Heroku)
 From https://github.com/memcachier/examples-django2
 
-*Modified to fit our needs (infinite timeout and infinite max entries)*
+*Modified to fit our needs:
+24 hour timeout (not sure how often events get updated) and infinite max entries
 """
 ## MemCachier Settings
 ## ===================
@@ -125,7 +117,7 @@ def get_cache():
       'default': {
         'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
         'BINARY': True,
-        'TIMEOUT': 0,  # In PyLibMCCache 0 means infinite timeout
+        'TIMEOUT': 86400,
         'OPTIONS': {
             'no_block': True,
             'tcp_nodelay': True,
@@ -142,7 +134,7 @@ def get_cache():
     return {
       'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'TIMEOUT': None,  # In LocMemCache None means infinite timeout
+        'TIMEOUT': 86400,
         'OPTIONS': {
             'MAX_ENTRIES': 10e9
         }

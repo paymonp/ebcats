@@ -1,9 +1,19 @@
+{% include "ebcatsapp/results_pagination.html" with page_num=page_num num_pages=num_pages %}
 <div class="results">
     {% for event in events %}
-        <a href="{{ event.url }}">
-            <div class="name">
-                {{ event.name }}
+        <a href="{{ event.url }}" target="_blank">
+            <div class="event">
+                <img class="logo" alt="" src="{{ event.logo_url }}" />
+                <div class="details">
+                    <div class="name">
+                        {{ event.name.text }}
+                    </div>
+                    <div class="time">
+                        {{ event.start.local }}
+                    </div>
+                </div>
             </div>
         </a>
     {% endfor %}
 </div>
+{% include "ebcatsapp/results_pagination.html" with page_num=page_num num_pages=num_pages %}

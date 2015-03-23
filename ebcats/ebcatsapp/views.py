@@ -47,10 +47,14 @@ def results(request):
     category_ids.sort()
     category_ids = map(str, category_ids)
 
-    cache_key = 'events' + ''.join(category_ids)
+    cache_key = 'events' + ','.join(category_ids) + 'pg' + page_num
 
     events = cache.get(cache_key)
     if events is None:
         events = eventbrite.get_category_events(category_ids, page_num)
         cache.set(cache_key, events)
-    return render(request, 'ebcatsapp/results.html', {'events': events})
+    return render(request, 'ebcatsapp/results.html', {
+        'events': events['events'],
+        'num_pages': events['pagination']['page_count'],
+        'page_num': page_num
+    })
