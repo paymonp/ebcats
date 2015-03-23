@@ -25,9 +25,10 @@ def index(request):
 Uses the three selected category ids to create
 a paginated page of events
 
-The cache keys are set to never expire in settings.py,
-because the query in eventbrite.get_category_events is
-very expensive.
+The query in eventbrite.get_category_events is
+very expensive due to the page size being fixed at
+50 for event search. If the cache is cold this
+takes up to 15 seconds...
 
 Params: cats - list of cat ids,
         page - page number for pagination, default 1
