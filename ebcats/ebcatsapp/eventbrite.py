@@ -10,7 +10,7 @@ class Eventbrite:
         self.token = token
 
     """
-    Returns a list of tuples with the format:
+    Returns a list of event categories with the format:
     (category id, category name)
     """
     def get_categories(self):
@@ -25,7 +25,9 @@ class Eventbrite:
     """
     Returns a list of events
 
-    Params: list of cat ids
+    Params:
+    category_ids - list of cat ids
+    page - the page number for Eventbrite's pagination to use
     """
     def get_category_events(self, category_ids, page=1):
         args = {'categories': ','.join(map(str, category_ids)),

@@ -28,7 +28,7 @@ a paginated page of events
 The query in eventbrite.get_category_events is
 very expensive due to the page size being fixed at
 50 for event search. If the cache is cold this
-takes up to 15 seconds...
+takes up to 15 seconds.
 
 Params: cats - list of cat ids,
         page - page number for pagination, default 1
