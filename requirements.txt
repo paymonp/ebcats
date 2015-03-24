@@ -8,3 +8,6 @@ requests==1.1.0
 static3==0.5.1
 urllib3==1.5
 wsgiref==0.1.2
+argparse==1.2.1
+distribute==0.7.3
+wsgiref==0.1.2
